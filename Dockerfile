@@ -66,11 +66,7 @@ RUN chmod +x /tmp/pre-env.sh && \
     chmod +x /usr/local/bin/run.sh && \
     a2ensite agendav.conf && \
     a2dissite 000-default && \
-    a2enmod rewrite && \
-    echo "Listen 127.0.0.1:8080" > /etc/apache2/ports.conf && \
-    service apache2 restart && \
-    service apache2 stop &&  \
-    echo "Listen 8080" > /etc/apache2/ports.conf
+    a2enmod rewrite
 
 RUN ln -sf /dev/stdout ${APACHE_LOG_DIR}/access.log \
     && ln -sf /dev/stderr ${APACHE_LOG_DIR}/error.log \

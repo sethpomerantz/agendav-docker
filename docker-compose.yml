@@ -15,4 +15,4 @@ services:
       - AGENDAV_LOG_DIR=/tmp/
       - AGENDAV_WEEKSTART=1
     ports:
-      - "80:8080"
+      - "3001:8080"
