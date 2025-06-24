@@ -11,7 +11,6 @@ sed -i -e "s/AGENDAV_LOG_DIR/$(echo "${AGENDAV_LOG_DIR}" | sed -e 's/[\/}]/\\&/g
 sed -i -e "s/AGENDAV_WEEKSTART/$(echo "${AGENDAV_WEEKSTART}" | sed -e 's/[\/}]/\\&/g')/" ${CONFIG_FILE}
 CONFIG_FILE="${PHP_INI_DIR}/php.ini"
 sed -i -e "s/UTC/$(echo "${AGENDAV_TIMEZONE}" | sed -e 's/[\/}]/\\&/g')/" ${CONFIG_FILE}
-echo "Listen 0.0.0.0:8080" >/etc/apache2/ports.conf
 if [ "x$1" = 'xapache2' ]; then
   echo "Start webserver"
   exec /usr/sbin/apache2ctl -D FOREGROUND
